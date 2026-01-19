@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt - Dea Kastelic</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">DEA KASTELIC</h1>
+            <ul class="nav-links">
+                <li><a href="index.html">Naslovna</a></li>
+                <li><a href="about.html">O meni</a></li>
+                <li><a href="projects.html">Projekti</a></li>
+                <li><a href="contact.html" class="active">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="contact-page">
+        <div class="container">
+            <h2 class="page-title">Kontaktiraj me</h2>
+            
+            <div class="contact-content">
+                
+                <!-- KONTAKT FORMA -->
+                <div class="contact-form-wrapper">
+                    <h3>Pošalji poruku</h3>
+                    
+                    <form class="contact-form">
+                        <!-- <form> - obrazac za unos podataka -->
+                        <!-- NAPOMENA: Ova forma neće stvarno slati podatke jer nema backend -->
+                        <!-- To je OK za ovaj projekt jer se traži samo HTML/CSS -->
+                        
+                        <div class="form-group">
+                            <!-- Grupa za jedan input element -->
+                            
+                            <label for="name">Ime i prezime:</label>
+                            <!-- <label> - oznaka za input field -->
+                            <!-- "for" atribut povezuje label s inputom (klikanje na label fokusira input) -->
+                            
+                            <input type="text" id="name" name="name" required>
+                            <!-- <input> - polje za unos -->
+                            <!-- type="text" - tekstualni input -->
+                            <!-- id="name" - jedinstveni identifikator (povezuje se s label) -->
+                            <!-- name="name" - ime koje bi se slalo serveru -->
+                            <!-- required - obavezno polje -->
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                            <!-- type="email" - automatska validacija email formata -->
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Poruka:</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                            <!-- <textarea> - višelinijsko tekstualno polje -->
+                            <!-- rows="5" - visina u redovima -->
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">Pošalji</button>
+                        <!-- <button> - gumb za slanje forme -->
+                        <!-- type="submit" - submitta formu -->
+                    </form>
+                </div>
+                
+                <!-- KONTAKT INFORMACIJE -->
+                <div class="contact-info">
+                    <h3>Kontakt informacije</h3>
+                    
+                    <div class="info-item">
+                        <strong>Email:</strong>
+                        <p>dea.kastelic@example.com</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <strong>Telefon:</strong>
+                        <p>+385 91 234 5678</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <strong>Lokacija:</strong>
+                        <p>Zagreb, Hrvatska</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <strong>Radno vrijeme:</strong>
+                        <p>Pon - Pet: 9:00 - 17:00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Dea Kastelic. Sva prava pridržana.</p>
+            <div class="social-links">
+                <a href="https://instagram.com" target="_blank">Instagram</a>
+                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                <a href="mailto:dea@example.com">Email</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

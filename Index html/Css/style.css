@@ -1,0 +1,476 @@
+/* ========================================
+   RESET I OSNOVNE POSTAVKE
+   ======================================== */
+
+* {
+    /* Universal selector - primjenjuje se na SVE elemente */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* box-sizing: border-box - širina elementa uključuje padding i border
+       (standardno je content-box gdje se padding i border dodaju na širinu) */
+}
+
+:root {
+    /* CSS custom properties (varijable) - mogu se koristiti kroz cijeli CSS */
+    --primary-color: #2c3e50;      /* Tamno plava - glavna boja */
+    --secondary-color: #e74c3c;    /* Crvena - akcent boja */
+    --text-color: #333;            /* Tamno siva - tekst */
+    --light-bg: #f8f9fa;           /* Svijetlo siva - pozadine */
+    --white: #ffffff;              /* Bijela */
+    --font-main: 'Arial', sans-serif;  /* Glavni font */
+}
+
+body {
+    font-family: var(--font-main);
+    /* var() funkcija koristi CSS varijablu */
+    color: var(--text-color);
+    line-height: 1.6;
+    /* line-height: razmak između redaka teksta (1.6 = 160% visine fonta) */
+}
+
+/* ========================================
+   CONTAINER - ograničava širinu sadržaja
+   ======================================== */
+
+.container {
+    max-width: 1200px;
+    /* Maksimalna širina - sadržaj neće biti širi od 1200px */
+    margin: 0 auto;
+    /* margin: 0 auto - centrira element horizontalno */
+    padding: 0 20px;
+    /* padding: lijevo i desno po 20px (za mobile) */
+}
+
+/* ========================================
+   NAVIGACIJA
+   ======================================== */
+
+.navbar {
+    background-color: var(--primary-color);
+    padding: 1rem 0;
+    /* rem = relative em (1rem = font size root elementa, obično 16px) */
+    position: sticky;
+    /* sticky - element ostaje vidljiv pri scrollanju nakon što dosegne vrh */
+    top: 0;
+    z-index: 100;
+    /* z-index: kontrolira slojeve elemenata (veći broj = više) */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    /* box-shadow: horizontalni offset, vertikalni offset, blur, boja */
+}
+
+.navbar .container {
+    display: flex;
+    /* Flexbox layout - elementi se raspoređuju u fleksibilne redove/stupce */
+    justify-content: space-between;
+    /* justify-content: razmak između elemenata (logo lijevo, linkovi desno) */
+    align-items: center;
+    /* align-items: vertikalno centriranje */
+}
+
+.logo {
+    color: var(--white);
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    /* letter-spacing: razmak između slova */
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    /* list-style: none - uklanja bullet točke s liste */
+    gap: 2rem;
+    /* gap: razmak između flex/grid elemenata */
+}
+
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    /* text-decoration: none - uklanja podvlaku s linkova */
+    font-weight: 500;
+    transition: color 0.3s ease;
+    /* ANIMACIJA 1: TRANSITION
+       transition: svojstvo trajanje timing-function
+       - animira promjenu boje preko 0.3 sekunde
+       - ease = sporo počinje, ubrzava, sporo završava */
+}
+
+.nav-links a:hover {
+    /* :hover = pseudo-class - aktivira se kad mišš prijeđe preko elementa */
+    color: var(--secondary-color);
+    /* Mijenja boju u crvenu - transition ju animira */
+}
+
+.nav-links a.active {
+    /* .active klasa označava trenutnu stranicu */
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 5px;
+}
+
+/* ========================================
+   HERO SECTION - Glavna sekcija
+   ======================================== */
+
+.hero {
+    background: linear-gradient(135deg, var(--primary-color), #34495e);
+    /* linear-gradient: gradijent od primary boje prema tamnijoj
+       135deg = dijagonalni smjer */
+    color: var(--white);
+    padding: 8rem 0;
+    text-align: center;
+    min-height: 70vh;
+    /* vh = viewport height (70vh = 70% visine ekrana) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    animation: fadeInUp 1s ease-out;
+    /* ANIMACIJA 2: KEYFRAMES ANIMATION
+       - koristi @keyframes fadeInUp (definirano niže)
+       - traje 1 sekundu
+       - ease-out = počinje brzo, usporava */
+}
+
+/* KEYFRAMES ANIMACIJA - definira korake animacije */
+@keyframes fadeInUp {
+    /* from = početno stanje (može biti i 0%) */
+    from {
+        opacity: 0;
+        /* opacity: 0 = potpuno prozirno */
+        transform: translateY(30px);
+        /* translateY: pomak prema dolje za 30px */
+    }
+    /* to = završno stanje (može biti i 100%) */
+    to {
+        opacity: 1;
+        /* opacity: 1 = potpuno vidljivo */
+        transform: translateY(0);
+        /* translateY: 0 = originalna pozicija */
+    }
+    /* Rezultat: element se pojavljuje odozdo nagore */
+}
+
+.hero-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.btn-primary {
+    display: inline-block;
+    /* inline-block: ponaša se kao inline, ali može imati širinu/visinu */
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    /* border-radius: zaobljeni kutovi */
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* ANIMACIJA 3: HOVER EFEKT - animira transform i shadow */
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    /* Diže gumb 3px prema gore */
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+    /* Dodaje sjenu - gumb izgleda kao da lebdi */
+}
+
+/* ========================================
+   ABOUT PAGE - O meni stranica
+   ======================================== */
+
+.about-page,
+.projects-page,
+.contact-page {
+    padding: 4rem 0;
+    min-height: 60vh;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+    position: relative;
+}
+
+.page-title::after {
+    /* ::after = pseudo-element - dodaje dekorativni element */
+    content: '';
+    /* content mora postojati (makar prazan) */
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    margin: 1rem auto 0;
+    /* Centrirana linija ispod naslova */
+}
+
+.about-content {
+    display: grid;
+    /* CSS Grid layout - moćniji od flexboxa za 2D layoute */
+    grid-template-columns: 1fr 2fr;
+    /* 1fr 2fr = prvi stupac uzima 1 dio, drugi 2 dijela prostora
+       fr = fraction (dio dostupnog prostora) */
+    gap: 3rem;
+    /* Razmak između stupaca */
+    align-items: start;
+}
+
+.about-image img {
+    width: 100%;
+    /* Slika zauzima punu širinu kontejnera */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    /* ANIMACIJA 4: Hover na sliku */
+}
+
+.about-image img:hover {
+    transform: scale(1.05);
+    /* scale: povećava element za 5% */
+}
+
+.about-text h3 {
+    color: var(--primary-color);
+    margin: 1.5rem 0 1rem;
+}
+
+.skills-list {
+    list-style-position: inside;
+    /* Bullet točke unutar elementa */
+    padding-left: 0;
+}
+
+.skills-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* ========================================
+   PROJECTS PAGE - Grid projekata
+   ======================================== */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* repeat(auto-fit, ...): automatski prilagođava broj stupaca
+       minmax(300px, 1fr): svaki element minimalno 300px, maksimalno 1 frakcija
+       Rezultat: responzivan grid koji se sam prilagođava */
+    gap: 2rem;
+}
+
+.project-card {
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    /* overflow: hidden - skriva sve što prelazi granice elementa */
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* ANIMACIJA 5: Hover na karticu */
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    /* Diže karticu 10px prema gore */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    /* Jača sjena */
+}
+
+.project-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    /* object-fit: cover - slika pokriva cijeli prostor bez deformiranja */
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.1);
+    /* Zoomira sliku unutar kartice */
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+.project-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.project-tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.tag {
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+/* ========================================
+   CONTACT PAGE - Forma
+   ======================================== */
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Dva jednaka stupca */
+    gap: 3rem;
+}
+
+.contact-form-wrapper h3,
+.contact-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+    /* inherit: preuzima font od parent elementa */
+    transition: border-color 0.3s ease;
+    /* ANIMACIJA 6: Focus na input */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    /* :focus = kad je element aktivan (kliknuto u njega) */
+    outline: none;
+    /* outline: none - uklanja defaultni browser outline */
+    border-color: var(--primary-color);
+    /* Mijenja boju bordera */
+}
+
+.info-item {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.info-item strong {
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+/* ========================================
+   FOOTER - Podnožje
+   ======================================== */
+
+.footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 2rem 0;
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.social-links {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.social-links a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--secondary-color);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN - Media Queries
+   ======================================== */
+
+/* Tablet (max 768px širine) */
+@media screen and (max-width: 768px) {
+    /* @media = uvjetni CSS - primjenjuje se samo na određenim veličinama ekrana */
+    /* max-width: 768px = CSS se primjenjuje kad je ekran manji od 768px */
+    
+    .nav-links {
+        flex-direction: column;
+        /* Vertikalni raspored linkova umjesto horizontalnog */
+        gap: 1rem;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+        /* Manji naslov za mobile */
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+        /* Jedan stupac umjesto dva - slika i tekst jedan ispod drugog */
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+        /* Jedna kartica po redu */
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+        /* Forma i info jedan ispod drugog */
+    }
+}
+
+/* Mobile (max 480px širine) */
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+        /* Manji padding za male ekrane */
+    }
+    
+    .hero {
+        padding: 4rem 0;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .btn-primary {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}

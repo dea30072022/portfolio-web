@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O meni - Dea Kastelic</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Ista CSS datoteka se koristi na svim stranicama za konzistentnost dizajna -->
+</head>
+
+<body>
+    <!-- NAVBAR - kopija navigacije s glavne stranice -->
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">DEA KASTELIC</h1>
+            <ul class="nav-links">
+                <li><a href="index.html">Naslovna</a></li>
+                <li><a href="about.html" class="active">O meni</a></li>
+                <!-- "active" klasa sada je na "O meni" jer smo na toj stranici -->
+                <li><a href="projects.html">Projekti</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT - glavni sadržaj stranice -->
+    <main class="about-page">
+        <!-- <main> - semantički element za glavni sadržaj (samo jedan po stranici) -->
+        
+        <div class="container">
+            <h2 class="page-title">O meni</h2>
+            
+            <div class="about-content">
+                <!-- GRID layout - podijeljen na sliku i tekst -->
+                
+                <div class="about-image">
+                    <img src="images/profile.jpg" alt="Dea Kastelic - Grafička dizajnerica">
+                    <!-- <img> - slika -->
+                    <!-- src = source (putanja do slike) - RELATIVNA putanja -->
+                    <!-- alt = alternativni tekst (za accessibility i SEO) -->
+                </div>
+                
+                <div class="about-text">
+                    <h3>Tko sam ja?</h3>
+                    <!-- <h3> - treći nivo naslova (h1 > h2 > h3) -->
+                    
+                    <p>Ja sam Dea Kastelic, studentica dizajna sa strašću prema vizualnoj komunikaciji i brendiranju. Specijaliziram se za kreiranje modernih, minimalističkih dizajna koji pričaju priču.</p>
+                    
+                    <p>Moj pristup kombinira estetiku s funkcionalnosti, uvijek držeći krajnjeg korisnika u fokusu.</p>
+                    
+                    <h3>Vještine</h3>
+                    
+                    <ul class="skills-list">
+                        <!-- Lista vještina -->
+                        <li>Adobe Photoshop</li>
+                        <li>Adobe InDesign</li>
+                        <li>Branding & Identitet</li>
+                        <li>Social Media Marketing</li>
+                        <li>HTML & CSS</li>
+                    </ul>
+                    
+                    <h3>Obrazovanje</h3>
+                    <p><strong>Algebra Visoka škola</strong> - Grafički dizajn i vizualne komunikacije (2024-2026)</p>
+                    <!-- <strong> - bold tekst (semantički označava važnost) -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER - isti kao na index.html -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Dea Kastelic. Sva prava pridržana.</p>
+            <div class="social-links">
+                <a href="https://instagram.com" target="_blank">Instagram</a>
+                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                <a href="mailto:dea@example.com">Email</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
