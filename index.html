@@ -1,39 +1,18 @@
 <!DOCTYPE html>
 <html lang="hr">
 <head>
-    <!-- META TAGOVI - informacije o stranici -->
     <meta charset="UTF-8"> 
-    <!-- UTF-8 encoding omogućava prikaz hrvatskih znakova (č, ć, š, ž) -->
-    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Viewport postavke za responzivnost - stranica se prilagođava veličini ekrana -->
-    
     <title>Dea Kastelic - Portfolio</title>
-    <!-- Naslov koji se pojavljuje u browseru -->
-    
     <link rel="stylesheet" href="css/style.css">
-    <!-- Povezivanje s CSS datotekom - RELATIVNA PUTANJA (iz index.html → u css folder → style.css) -->
 </head>
 
 <body>
-    <!-- NAVIGATION BAR - navigacijski meni -->
     <nav class="navbar">
-        <!-- <nav> je semantički HTML5 element za navigaciju -->
-        
         <div class="container">
-            <!-- Container drži sadržaj centriran i ograničava širinu -->
-            
             <h1 class="logo">DEA KASTELIC</h1>
-            <!-- Logo/ime - <h1> je glavni naslov stranice (važno za SEO) -->
-            
             <ul class="nav-links">
-                <!-- <ul> = unordered list (neuređena lista) za navigacijske linkove -->
-                
                 <li><a href="index.html" class="active">Naslovna</a></li>
-                <!-- <li> = list item, <a> = anchor/link -->
-                <!-- href="index.html" - RELATIVNA putanja do glavne stranice -->
-                <!-- class="active" označava trenutnu stranicu (za CSS styling) -->
-                
                 <li><a href="about.html">O meni</a></li>
                 <li><a href="projects.html">Projekti</a></li>
                 <li><a href="contact.html">Kontakt</a></li>
@@ -41,38 +20,23 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION - glavna sekcija dobrodošlice -->
     <section class="hero">
-        <!-- <section> - semantički element za logičku grupu sadržaja -->
-        
         <div class="hero-content">
             <h2 class="hero-title">Dobrodošli na moj portfolio</h2>
-            <!-- <h2> - podnaslov (hijerarhija: h1 > h2 > h3...) -->
-            
             <p class="hero-subtitle">Grafički dizajn | Branding | Vizualna komunikacija</p>
-            <!-- <p> = paragraph (paragraf) -->
-            
             <a href="projects.html" class="btn-primary">Pogledaj projekte</a>
-            <!-- Call-to-action button - link stiliziran kao gumb -->
         </div>
     </section>
 
-    <!-- FOOTER - podnožje stranice -->
     <footer class="footer">
-        <!-- <footer> - semantički element za podnožje -->
         
         <div class="container">
             <p>&copy; 2026 Dea Kastelic. Sva prava pridržana.</p>
-            <!-- &copy; je HTML entitet za © simbol -->
             
             <div class="social-links">
-                <!-- Društvene mreže - lista linkova -->
                 <a href="https://instagram.com" target="_blank">Instagram</a>
-                <!-- target="_blank" otvara link u novom tabu -->
-                
                 <a href="https://linkedin.com" target="_blank">LinkedIn</a>
                 <a href="mailto:deakaste@gmail.com">Email</a>
-                <!-- mailto: otvara email klijent -->
             </div>
         </div>
     </footer>
